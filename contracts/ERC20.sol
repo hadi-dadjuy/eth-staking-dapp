@@ -23,7 +23,7 @@ contract ERC20 is IERC20{
     function name() external view returns(string memory) {
         return _name;        
     }
-    function decimals() external view returns(string memory) {
+    function decimals() external view returns(uint) {
         return _decimals;        
     }
 
