@@ -12,6 +12,12 @@ contract ERC20 is IERC20{
     mapping (address => mapping(address => uint)) allowances;
 
 
+    constructor (string memory name_,string memory symbol_, uint totalSupply_) {
+        _name = name_;
+        _symbol = symbol_;
+        _totalSupply = totalSupply_;
+    }
+
     function name() external view returns(string memory) {
         return _name;        
     }
@@ -44,7 +50,7 @@ contract ERC20 is IERC20{
 
     function approve(address spender, uint256 value) external returns (bool){
         require(value > 0 ,"ERROR: VALUE IS ZERO!");
-        allowances[msg.sender][spender]=value;
+        allowances[msg.sender][spender]+=value;
         emit Approval(msg.sender,spender,value);
         return true;
     }
