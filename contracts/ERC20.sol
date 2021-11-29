@@ -34,6 +34,7 @@ contract ERC20 is IERC20{
 
     function transfer(address to, uint value) external returns (bool){
         require(value > 0 ,"ERROR: VALUE IS ZERO!");
+        require(value > 0 ,"ERROR: VALUE IS ZERO!");
         require(balances[msg.sender] >= value ,"ERROR: INSUFFICIENT BALANCE!");
         balances[msg.sender] -= value;
         balances[to] += value;
@@ -49,11 +50,12 @@ contract ERC20 is IERC20{
     }
 
     function transferFrom(address from, address to, uint value) external returns (bool){
+        require(balances[from] >= value , "ERROR: INSUFFICIENT BALANCE!");
         require(value > 0 ,"ERROR: VALUE IS ZERO!");
-        require(allowances[from][msg.sender] >= value ,"ERROR: VALUE IS ZERO!");
-        allowances[from][msg.sender] -= value;
+        require(allowances[from][msg.sender] >= value ,"ERROR: NOT ALLOWED!");
         balances[from] -= value;
         balances[to] += value;
+        allowances[from][msg.sender] -= value;
         emit Transfer(from,to,value);
         return true;
     }
