@@ -3,7 +3,9 @@ pragma solidity 0.8.10;
 
 interface IERC20 {
   function name() external view returns (string memory);
-  
+
+  function decimals() external view returns (uint);
+
   function symbol() external view returns (string memory);
 
   function totalSupply() external view returns (uint);
