@@ -8,6 +8,7 @@ contract ERC20 is IERC20{
     string _name;
     string _symbol;
     uint _totalSupply;
+    uint _decimals = 18;
     mapping (address => uint) balances;
     mapping (address => mapping(address => uint)) allowances;
 
@@ -16,10 +17,14 @@ contract ERC20 is IERC20{
         _name = name_;
         _symbol = symbol_;
         _totalSupply = totalSupply_;
+        balances[msg.sender] = _totalSupply;
     }
 
     function name() external view returns(string memory) {
         return _name;        
+    }
+    function decimals() external view returns(string memory) {
+        return _decimals;        
     }
 
     function symbol() external view returns(string memory) {
