@@ -45,7 +45,6 @@ contract ERC20 is IERC20{
 
     function transfer(address to, uint value) external returns (bool){
         require(value > 0 ,"ERROR: VALUE IS ZERO!");
-        require(value > 0 ,"ERROR: VALUE IS ZERO!");
         require(balances[msg.sender] >= value ,"ERROR: INSUFFICIENT BALANCE!");
         balances[msg.sender] -= value;
         balances[to] += value;

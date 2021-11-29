@@ -12,6 +12,7 @@ contract Owner {
 
     function changeOwner(address newOwner) external onlyOwner returns(bool) {
         owner = newOwner;
+        return true;
     }
    
    modifier onlyOwner(){

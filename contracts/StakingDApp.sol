@@ -8,5 +8,9 @@ contract StakingDApp is Owner{
     
     IERC20 nt; // native token
 
+    constructor(address ntAddress) Owner(){
+        nt = IERC20(ntAddress);
+    }
+
 
 }
