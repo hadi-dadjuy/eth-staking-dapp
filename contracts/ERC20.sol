@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.10;
 
-import './IERC20.sol';
+import './interfaces/IERC20.sol';
 
 contract ERC20 is IERC20{
-    
+
     string _name;
     string _symbol;
     uint _totalSupply;
@@ -21,18 +21,18 @@ contract ERC20 is IERC20{
     }
 
     function name() external view returns(string memory) {
-        return _name;        
+        return _name;
     }
     function decimals() external view returns(uint) {
-        return _decimals;        
+        return _decimals;
     }
 
     function symbol() external view returns(string memory) {
-        return _symbol;        
+        return _symbol;
     }
 
     function totalSupply() external view returns(uint) {
-        return _totalSupply;        
+        return _totalSupply;
     }
 
     function balanceOf(address who) external view returns (uint256){
