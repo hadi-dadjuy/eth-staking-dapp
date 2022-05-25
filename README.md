@@ -1,5 +1,5 @@
 # ETH Staking DApp 
-### Initail release
+### Initial release
 
 ### Screenshots
 ![](/screenshots/1.png)
